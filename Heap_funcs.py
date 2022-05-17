@@ -1,4 +1,5 @@
 import Settings
+from Settings import swap
 
 def build_min_heap(array: list):
     for i in range(len(array)//2, -1, -1):
@@ -22,16 +23,17 @@ def min_heap(father: int, array: list):
         if array[right] < array[min]:
             min = right
     
-        #If the min != the father we have to contiue the func 
-    Settings.heap_comparisons += 1
+    #If the min != the father we have to contiue the func 
     if father != min:
-        array[father], array[min] = array[min], array[father] #Swap in the coolest way ever
+        swap(array, father, min)
         min_heap(min, array)
 
 
 def heap_axtract_min(array: list):
     if len(array) > 0: # In case the user asked more k smallest number than we have and we dont want to get an index error.
-        min = array.pop(0) # Using pop to get and remove the first object, the min, from the list.
+        swap(array, 0, -1)
+
+        min = array.pop() # Using pop to get and remove the first object, the min, from the list.
         min_heap(0, array)
         return min
     

@@ -13,11 +13,11 @@ def get_k_array_from_user():
             else:
                 array = list(randint(999, size=n))
         except :
-            print("Plese enter ONLY Valid NUMBERS, no char or negative digits")
+            print("Plese enter ONLY Valid NUMBERS, no char or negative digits\n")
             
         else :        
-            print(f"Your array is: {array}, and your k smallest numbers is: {k}")
+            print(f"Your array is: {array}, and your k smallest numbers is: {k}\n")
             break
     
-    return array, k
+    return array, array.copy(), k
     
